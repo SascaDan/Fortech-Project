@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <<li class="active"><a href="#">Home</a></li>
+          <li><a href="javascript:changeTab('users');">Users</a></li>
+          <li><a href="javascript:changeTab('issues');">Issues</a></li>
+          <li><a href="javascript:changeTab('sprint');">My Sprint</a></li>
+
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Sprints
+              <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Sprint 1</a></li>
+                <li><a href="#">Sprint 2</a></li>
+                <li><a href="#">Sprint 3</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div id="sprint">
+
+      <div class="container-fluid">
+        <div class="page-header">
+          <h1>Project a sprint b</h1>
+
+        </div>
+        <div class="row">
+          <div class="col-md-2">
+            <div class="status-container" id="new">
+              <div class="title"> New </div>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="status-container" id="in-progress">
+              <div class="title"> In Progress </div>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="status-container" id="feedback">
+              <div class="title"> Feedback </div>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="status-container" id="rework">
+              <div class="title"> Rework </div>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="status-container" id="resolved">
+              <div class="title"> Resolved </div>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="status-container" id=ready-for-testing>
+              <div class="title"> Ready for Testing </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div id="users">
+      <div class="container" id="table-data">
+
+      </div>
+    </div>
+
+    <div class="container" id="issues">
+      <form>
+        <div class="row">
+          <div class="col-md-5">
+            <div class="input-group">
+              <span class="input-group-addon">Name</span>
+              <input id="name" type="text" class="form-control" name="msg" placeholder="Additional Info">
+            </div>
+          </div>
+          <div class="col-md-5 col-md-offset-1">
+            <div class="input-group">
+              <span class="input-group-addon" >Type</span>
+              <select class="form-control" id="type">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <br />
+        <div class="row">
+          <div class="col-md-5">
+            <div class="input-group">
+              <span class="input-group-addon">Description</span>
+              <input id="description" type="text" class="form-control" name="msg" placeholder="Additional Info">
+            </div>
+          </div>
+          <div class="col-md-5 col-md-offset-1">
+            <div class="input-group">
+              <span class="input-group-addon">userIdAssigned</span>
+              <select class="form-control" id="userIdAssigned">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <br />
+        <div class="row">
+          <div class="col-md-5">
+            <div class="input-group">
+              <span class="input-group-addon">Issues Ids</span>
+              <input id="issueIds" type="text" class="form-control" name="msg" placeholder="Additional Info">
+            </div>
+          </div>
+          <div class="col-md-5 col-md-offset-1">
+            <div class="input-group">
+              <span class="input-group-addon">Comments Ids</span>
+              <input id="commentIds" type="text" class="form-control" name="msg" placeholder="Additional Info">
+            </div>
+          </div>
+        </div>
+        <br />
+        <div class="row">
+          <div class="col-md-offset-5 col-md-2">
+            <button class="btn btn-info btn-lg" onclick="saveData()" type="button" >Save</button>
+          </div>
+        </div>
+      </form>
+      <br />
+      <table class="table" id="table-data">
+        <thead>
+          <tr>
+            <th>Issue Id</th>
+            <th>Type</th>
+            <th>Name</th>
+            <th>Created By</th>
+            <th>Assigned To</th>
+            <th>Description</th>
+            <th>Status</th>
+            <th>Sub Issues</th>
+            <th>Comments ID</th>
+            <th>Updated Date</th>
+            <th>Created Date</th>
+          </tr>
+        </thead>
+        <tbody id="issues-body">
+
+        </tbody>
+      </table>
+
+    </div>
+
+    <div class="new"> </div>
+    <div class="in-progress"> </div>
+    <div class="feedback"> </div>
+    <div class="rework"> </div>
+    <div class="resolved"> </div>
+    <div class="ready-for-testing"> </div>
+  </div>
+
+  <script src="./utils.js"></script>
+  <script src="./index.js"></script>
+</body>
+</html>
